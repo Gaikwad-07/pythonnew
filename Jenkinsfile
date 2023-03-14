@@ -32,6 +32,7 @@ sudo pip3 install gunicorn'''
         stage ('deplpoy') {
             steps{
                 sh '''#!/bin/bash
+sudo ufw enable
 sudo ufw allow 8000
 gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'''
             }
