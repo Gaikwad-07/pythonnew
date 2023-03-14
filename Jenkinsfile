@@ -33,7 +33,8 @@ pip3 install pandas==1.5.0'''
         }
         stage ('deplpoy') {
             steps{
-                sh '''sudo ufw allow 8000
+                sh '''#!/bin/bash
+sudo ufw allow 8000
 pip3 install spacy 
 pip3 install requests
 gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'''
