@@ -4,7 +4,7 @@ pipeline {
     stages{
         stage ('gitpull') {
             steps{
-                git 'https://github.com/Gaikwad-07/python-spacy-pro.git'
+                git 'https://github.com/Gaikwad-07/pythonnew.git'
             }
             
         }        
