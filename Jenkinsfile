@@ -23,20 +23,17 @@ virtualenv env'''
             steps{
                 sh '''#!/bin/bash
 source env/bin/activate
-pip3 install -r requirements.txt
-pip3 install django==3.0.7
+sudo pip3 install -r requirements.txt
 cd /var/lib/jenkins/workspace/python-spacy-pro
 systemctl start ngix
-pip3 install gunicorn
-pip3 install pandas==1.5.0'''
+sudo pip3 install gunicorn'''
             }
         }
         stage ('deplpoy') {
             steps{
                 sh '''#!/bin/bash
 sudo ufw allow 8000
-pip3 install spacy 
-pip3 install requests
+sudo pip3 install requests
 gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'''
             }
         }    
