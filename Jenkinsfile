@@ -34,7 +34,8 @@ sudo pip3 install gunicorn'''
                 sh '''#!/bin/bash
 sudo ufw allow 8000
 sudo pip3 install requests
-gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi'''
+python -m spacy download en
+gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'''
             }
         }    
     }
