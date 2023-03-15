@@ -25,7 +25,7 @@ virtualenv env'''
 source env/bin/activate
 sudo pip3 install -r requirements.txt
 cd /var/lib/jenkins/workspace/python-spacy-pro
-systemctl start ngix
+systemctl start nginx
 sudo pip3 install gunicorn
 sudo ufw enable'''
             }
