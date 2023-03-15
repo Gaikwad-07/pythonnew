@@ -16,7 +16,6 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install python3-venv -y
 sudo pip3 install virtualenv
 source env/bin/activate
-cd /var/lib/jenkins/workspace/python-spacy-pro
 virtualenv env'''
             }
         }
