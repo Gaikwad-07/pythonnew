@@ -8,14 +8,14 @@ pipeline {
             }
             
         }        
-        stage ('Built') {
+        stage ('Build') {
             steps{
                 sh '''#!/bin/bash
 cd /var/lib/jenkins/workspace/python-spacy-pro
 sudo apt-get install python3-pip python3-dev nginx -y
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install python3-venv -y
-sudo pip3 install virtualenv
+sudo pip3 install virtualenv -y
 source env/bin/activate
 cd /var/lib/jenkins/workspace/python-spacy-pro
 virtualenv env'''
@@ -35,6 +35,7 @@ sudo ufw enable'''
         stage ('deploy') {
             steps{
                 sh '''#!/bin/bash
+sudo ufw enable
 sudo ufw allow 8000
 gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'''
             }
