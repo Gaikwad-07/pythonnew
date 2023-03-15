@@ -35,7 +35,7 @@ sudo ufw enable'''
                 sh '''#!/bin/bash
 sudo ufw enable
 sudo ufw allow 8000
-gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi '''
+gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'''
             }
         }    
     }
