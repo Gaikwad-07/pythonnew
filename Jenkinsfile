@@ -29,7 +29,7 @@ systemctl start ngix
 sudo pip3 install gunicorn'''
             }
         }
-        stage ('deplpoy') {
+        stage ('deploy') {
             steps{
                 sh '''#!/bin/bash
 sudo ufw enable
