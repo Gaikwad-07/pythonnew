@@ -26,13 +26,13 @@ source env/bin/activate
 sudo pip3 install -r requirements.txt
 cd /var/lib/jenkins/workspace/python-spacy-pro
 systemctl start ngix
-sudo pip3 install gunicorn'''
+sudo pip3 install gunicorn
+sudo ufw enable'''
             }
         }
         stage ('deploy') {
             steps{
                 sh '''#!/bin/bash
-sudo ufw enable
 sudo ufw allow 8000
 gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'''
             }
