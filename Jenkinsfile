@@ -14,14 +14,16 @@ pipeline {
 sudo apt-get install python3-pip python3-dev nginx -y
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install python3-venv -y
-sudo pip3 install virtualenv
+virtualenv env
 source env/bin/activate
-virtualenv env'''
+sudo pip3 install -r requirements.txt'''
+
             }
         }
         stage ('Test') {
             steps{
                 sh '''#!/bin/bash
+sudo pip3 install virtualenv
 source env/bin/activate
 sudo pip3 install -r requirements.txt
 cd /var/lib/jenkins/workspace/python-spacy-pro
