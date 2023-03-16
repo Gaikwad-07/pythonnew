@@ -22,7 +22,7 @@ sudo pip3 install virtualenv'''
             steps{
                 sh '''#!/bin/bash
 cd /var/lib/jenkins/workspace/python-spacy-pro
-virtualenv env
+sudo virtualenv env
 source env/bin/activate
 sudo pip3 install -r requirements.txt
 cd /var/lib/jenkins/workspace/python-spacy-pro
