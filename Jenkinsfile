@@ -35,8 +35,8 @@ sudo pip3 install requests'''
             steps{
                 sh '''#!/bin/bash
 sudo ufw enable
-sudo ufw allow 8000
-gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'''
+sh 'sudo ufw allow 8000'
+sh 'gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'
             }
         }    
     }
