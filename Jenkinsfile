@@ -28,7 +28,7 @@ sudo pip3 install -r requirements.txt
 cd /var/lib/jenkins/workspace/python-spacy-pro
 systemctl start nginx
 sudo pip3 install gunicorn
-sudo ufw enable'''
+sudo pip3 install requests'''
             }
         }
         stage ('deploy') {
