@@ -33,7 +33,7 @@ sudo pip3 install requests'''
         }
         stage ('deploy') {
             steps{
-sh 'sudo apt-get install django'                
+sh 'pip3 install django'               
 sh 'sudo ufw allow 8000'
 sh 'gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi &'
             }
