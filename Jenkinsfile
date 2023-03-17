@@ -35,7 +35,7 @@ sudo pip3 install requests'''
             steps{
 sh 'pip3 install django'               
 sh 'sudo ufw allow 8001'
-sh 'gunicorn --bind 0.0.0.0:8001 demo_spacy.wsgi &'
+sh 'gunicorn --bind 0.0.0.0:8001 demo_spacy.wsgi '
             }
         }    
     }
