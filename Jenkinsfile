@@ -22,10 +22,10 @@ sudo pip3 install virtualenv'''
             steps{
                 sh '''#!/bin/bash
 cd /var/lib/jenkins/workspace/python-spacy-pro1
-sudo pip3 install -r requirements.txt
 sudo virtualenv env
 source env/bin/activate
 cd /var/lib/jenkins/workspace/python-spacy-pro1
+sudo pip3 install -r requirements.txt
 systemctl start nginx
 sudo pip3 install gunicorn
 sudo pip3 install spacy
