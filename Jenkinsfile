@@ -22,9 +22,9 @@ sudo pip3 install virtualenv'''
             steps{
                 sh '''#!/bin/bash
 cd /var/lib/jenkins/workspace/python-spacy-pro1
+sudo pip3 install -r requirements.txt
 sudo virtualenv env
 source env/bin/activate
-sudo pip3 install -r requirements.txt
 cd /var/lib/jenkins/workspace/python-spacy-pro1
 systemctl start nginx
 sudo pip3 install gunicorn
@@ -33,9 +33,7 @@ sudo pip3 install requests'''
             }
         }
         stage ('deploy') {
-            steps{
-sh 'cd var/lib/jenkins/workspace/python-spacy-pro1'                
-sh 'sudo pip3 install -r requirement.txt'               
+            steps{               
 sh 'sudo ufw allow 8001'
 sh 'gunicorn --bind 0.0.0.0:8001 demo_spacy.wsgi '
             }
