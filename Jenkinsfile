@@ -19,6 +19,7 @@ cd /var/lib/jenkins/workspace/python-spacy-pro1
 sudo virtualenv env
 source env/bin/activate
 sudo pip3 install -r requirements.txt
+sudo pip3 install -U spacy
 python3 -m spacy download en_core_web_sm
 cd /var/lib/jenkins/workspace/python-spacy-pro1
 systemctl start ngix
@@ -31,7 +32,7 @@ sudo pip3 install requests'''
         stage ('deploy') {
             steps{
                 sh 'sudo ufw allow 8000'
-                sh 'sudo gunicorn --bind 0.0.0.0:8001 demo_spacy.wsgi:application'
+                sh 'sudo gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi:application'
                 
             }
         }
