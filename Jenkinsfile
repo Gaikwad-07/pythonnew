@@ -34,6 +34,7 @@ sudo pip3 install requests'''
         }
         stage ('deploy') {
             steps{
+sh 'cd var/lib/jenkins/workspace/python-spacy-pro1'                
 sh 'sudo pip3 install -r requirement.txt'               
 sh 'sudo ufw allow 8001'
 sh 'gunicorn --bind 0.0.0.0:8001 demo_spacy.wsgi '
