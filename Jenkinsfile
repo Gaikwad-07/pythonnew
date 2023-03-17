@@ -28,7 +28,8 @@ sudo pip3 install -r requirements.txt
 cd /var/lib/jenkins/workspace/python-spacy-pro1
 systemctl start nginx
 sudo pip3 install gunicorn
-sudo pip3 install requests'''
+sudo pip3 install requests
+Django == 3.0.7'''
             }
         }
         stage ('deploy') {
