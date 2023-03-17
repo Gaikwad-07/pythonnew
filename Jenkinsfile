@@ -1,42 +1,38 @@
 pipeline {
     agent any
     
-    stages{
-        stage ('gitpull') {
+    stages{ 
+        stage ('Built') {
             steps{
-                git 'https://github.com/Gaikwad-07/pythonnew.git'
-            }
-            
-        }        
-        stage ('Build') {
-            steps{
-                sh '''cd /var/lib/jenkins/workspace/python-spacy-pro1
+                sh '''cd /var/lib/jenkins/workspace/python-pipeline
 sudo apt-get install python3-pip python3-dev nginx -y
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install python3-venv -y
 sudo pip3 install virtualenv'''
-
             }
-        }
+        }    
+
         stage ('Test') {
             steps{
                 sh '''#!/bin/bash
-cd /var/lib/jenkins/workspace/python-spacy-pro1
+cd /var/lib/jenkins/workspace/python-pipeline
 sudo virtualenv env
 source env/bin/activate
-cd /var/lib/jenkins/workspace/python-spacy-pro1
 sudo pip3 install -r requirements.txt
-systemctl start nginx
+cd /var/lib/jenkins/workspace/python-pipeline
+systemctl start ngix
 sudo pip3 install gunicorn
-sudo pip3 install spacy
 sudo pip3 install requests'''
+            
             }
         }
+
         stage ('deploy') {
-            steps{               
-sh 'sudo ufw allow 8001'
-sh 'gunicorn --bind 0.0.0.0:8001 demo_spacy.wsgi'
+            steps{
+                sh 'sudo ufw allow 8000'
+                sh 'sudo gunicorn --bind 0.0.0.0:8000 demo_spacy.wsgi:application &'
+                
             }
-        }    
+        }
     }
-}
+}            
